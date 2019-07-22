@@ -1,0 +1,28 @@
+:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0
+:revnumber: {project-version}
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../java]
+:docinfo: shared
+:navigation:
+:menu:
+:header_footer: true
+:status:
+:title-slide-background-image: nest-logo.png
+:title-slide-transition: zoom
+:title-slide-transition-speed: fast
+:icons: font
+
+= Vue.js
+
+Le framework Node.JS à la façon Angular
+
+== Qui sommes nous ?
+
+=== Emmanuel DEMEY
+
+=== Aurélien LOYER
+
+include::chapters/introduction.adoc[]
+
+ 

@@ -1,0 +1,27 @@
+{
+  "name": "slides-vue-hack-in-the-wood-2019",
+  "version": "1.0.0",
+  "description": "👨🏻‍💻🌲 Vue.js - Hack in the wood 2019",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T3kstiil3/vue-hack-in-the-wood-2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/T3kstiil3/vue-hack-in-the-wood-2019/issues"
+  },
+  "homepage": "https://github.com/T3kstiil3/vue-hack-in-the-wood-2019#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "asciidoctor-reveal.js": "^2.0.0",
+    "chokidar": "^3.0.2",
+    "ncp": "^2.0.0",
+    "rimraf": "^2.6.3"
+  }
+}

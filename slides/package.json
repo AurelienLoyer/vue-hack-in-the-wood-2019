@@ -6,6 +6,8 @@
     "doc": "docs"
   },
   "scripts": {
+    "generate:slides": "node generate-slides.js",
+    "watch:slides": "node generate-slides.js watch"
   },
   "repository": {
     "type": "git",

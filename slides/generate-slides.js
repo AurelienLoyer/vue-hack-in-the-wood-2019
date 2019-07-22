@@ -9,7 +9,7 @@ const args = process.argv.slice(2);
 // Configuration 
 const isWatching = args.includes('watch');
 const mainSlideLocation = './asciidoc/index.adoc';
-const outputDir = '../docs/slides/';
+const outputDir = './../docs/slides/';
 const directoryToCopy = [
     'theme',
     'fonts',

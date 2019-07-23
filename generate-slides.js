@@ -1,3 +1,4 @@
+const liveServer = require("live-server");
 const util = require('util');
 const fs = require('fs');
 const rimraf = require('rimraf');
@@ -8,23 +9,31 @@ const args = process.argv.slice(2);
 
 // Configuration 
 const isWatching = args.includes('watch');
-const mainSlideLocation = './asciidoc/index.adoc';
-const outputDir = './../docs/slides/';
+const directoryToWatch = 'slides';
+const mainSlideLocation = './slides/asciidoc/index.adoc';
+const outputDir = './docs/slides/';
 const directoryToCopy = [
     'theme',
     'fonts',
     'images',
     'screencasts',
 ];
+const serverParams = {
+    root: "./docs",
+    open: true,
+    logLevel: 0,
+};
 
 if (isWatching) {
 
-    chokidar.watch('.', {
+    chokidar.watch(directoryToWatch, {
         ignored: /(^|[\/\\])\../,
         persistent: true
     }).on('all', (event, path) => {
         runWorkFlow();
     });
+
+    liveServer.start(serverParams);
 
 } else {
     workflow();
@@ -36,6 +45,7 @@ const runWorkFlow = debounce(function() {
 }, 2000);
 
 function workflow (){
+    const start = new Date()
 
     console.log('🏗  👷‍  start build slides ... 📺');
 
@@ -47,9 +57,10 @@ function workflow (){
     // Create slides directory
     fs.mkdirSync(outputDir);
 
+    // Copy all directoryToCopy
     Promise.all(directoryToCopy.map(path => {
 
-        ncpPromise(`./slides/${path}`, `${outputDir}${path}`);
+        ncpPromise(`./${directoryToWatch}/${path}`, `${outputDir}${path}`);
 
     })).then(() => {
 
@@ -61,8 +72,10 @@ function workflow (){
         // Convert the document 'index.adoc' using the reveal.js converter
         const options = {safe: 'safe', backend: 'revealjs', to_dir: outputDir};
         asciidoctor.convertFile(mainSlideLocation, options);
-
-        console.log('🎉 👌  slides successfully generated')
+        
+        const end = new Date() - start;
+        console.log('🎉 👌  slides successfully generated');
+        console.info('Execution time: %dms', end);
     })
 }
 

@@ -3,143 +3,65 @@
 === Installation 
 
 - Utilisation d'une CLI pour bootstraper le projet 
-- https://docs.nestjs.com/cli/usages
+- https://cli.vuejs.org/guide
 
 [source,shell]
 ----
 npm i -g @vue/cli
 vue create project-name
 
-npm run start:dev
-npm run start:debug
-npm run test
-----
-
-- Propose des _schematics_ pour générer de nouveaux fichiers
-
-[source,shell]
-----
-nest generate controller users
-nest generate provider users
+npm run serve
+npm run build
+npm run lint
 ----
 
 === Installation 
 
-screencast:nestjs[]
+++++
+<asciinema-player src="screencasts/vuejs.cast"></asciinema-player>
+++++
 
-=== Quelle est la porte d'entrée ?
+=== La porte d'entrée ?  
 
-.main.ts
-[source,typescript]
+.public/index.html
+[source,html]
 ----
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    ...
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    ...
+  </head>
+  <body>
+    ...
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
-}
-bootstrap();
-----
-
-.app.module.ts
-[source,typescript]
-----
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-
-@Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
-})
-export class AppModule {}
 ----
 
+=== La porte d'entrée JS ?
 
-=== Présentation du TP fil rouge
-
-=== Intégration Swagger
-
-* Module permettant d'intégrer _Swagger_ à votre API 
-* Met à disposition une UI permettant d'intéragir avec vos endpoints
-
-[source,shell]
-----
-npm install --save @nestjs/swagger swagger-ui-express
+.main.js
+[source,javascript]
 ----
 
-[source,typescript]
-----
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import Vue from "vue";
+import App from "./App.vue";
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+Vue.config.productionTip = false;
 
-  const options = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
-    .setVersion('1.0')
-    .build();
-  const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+new Vue({
+  render: h => h(App)
+}).$mount("#app");
 
-  await app.listen(3000);
-}
 ----
 
 
-=== Intégration Swagger
 
-* Documentation de vos APIs via des _Décorateurs_
+=== La suite ?  
 
-[source,typescript]
-----
-import { Controller, Post, Body } from '@nestjs/common';
-import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
-
-@Controller()
-export class AppController {
+Une todolist de plus pour remplir internet 😅
   
-  @Post()
-  @ApiResponse({ status: 403, description: 'Forbidden.'})
-  createUser(@Body() user: User): string {
-    return "OK"
-  }
-  
-}
-----
-
-=== Intégration Swagger
-
-* Documentation de vos API via des _Décorateurs_
-
-[source,typescript]
-----
-import { Controller, Post, Body } from '@nestjs/common';
-import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
-
-class Address {
-  @ApiModelProperty()
-  city: string
-}
-class User {
-  @ApiModelProperty()
-  name: string
-  @ApiModelProperty({type: Address})
-  address: Address[]
-}
-----
-
-=== À vous de jouer !
-
-* Récupérez la branche `step0` du repository GIT
-
-[source,shell]
-----
-git clone -b step0 https://github.com/T3kstiil3/BaaS
-----
-
-* Ajoutez l'intégration Swagger à l'application NestJS
-* Testez votre application pour vérifier son bon fonctionnement 

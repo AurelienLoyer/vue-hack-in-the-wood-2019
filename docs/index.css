@@ -11,7 +11,7 @@ body {
 html {
     height: 100vh;
     background: url('img/bg.jpeg');
-    background-size: 100vh;
+    background-size: cover;
     position: fixed;
 }
 
@@ -50,7 +50,7 @@ a:active {
 }
 
 .main-wrapper {
-    padding-top: 140px;
+    padding-top: 10vh;
 }
 
 .main-wrapper h1 {

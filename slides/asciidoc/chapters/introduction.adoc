@@ -21,23 +21,6 @@ npm run lint
 <asciinema-player src="screencasts/vuejs.cast"></asciinema-player>
 ++++
 
-=== La porte d'entrée ?
-
-.main.js
-[source,javascript]
-----
-
-import Vue from "vue";
-import App from "./App.vue";
-
-Vue.config.productionTip = false;
-
-new Vue({
-  render: h => h(App)
-}).$mount("#app");
-
-----
-
 === La porte d'entrée ?  
 
 .public/index.html
@@ -58,3 +41,27 @@ new Vue({
 </html>
 
 ----
+
+=== La porte d'entrée JS ?
+
+.main.js
+[source,javascript]
+----
+
+import Vue from "vue";
+import App from "./App.vue";
+
+Vue.config.productionTip = false;
+
+new Vue({
+  render: h => h(App)
+}).$mount("#app");
+
+----
+
+
+
+=== La suite ?  
+
+Une todolist de plus pour remplir internet 😅
+  

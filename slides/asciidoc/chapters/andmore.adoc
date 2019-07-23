@@ -1,0 +1,11 @@
+== Pour aller plus loin...
+
+=== Nuxt.js du SSR pour Vue.js
+
+++++
+<asciinema-player src="screencasts/nuxtjs.cast"></asciinema-player>
+++++
+
+=== Merci 🙏
+
+@EmmanuelDemey | @AurelienLoyer

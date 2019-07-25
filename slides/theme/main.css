@@ -596,12 +596,20 @@ section.has-dark-background h3 {
     font-weight: bold
 }
 
-
-
-
-
 .slide-background {
     background-size: contain;
     background-position: top;
     background-color: #0f1314;
+}
+
+.align-group .content {
+    display: flex;
+    height: 40vh;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.align-group .content img {
+    height: 30vh;
+    width: auto;
 }

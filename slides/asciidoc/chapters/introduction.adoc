@@ -1,4 +1,13 @@
-=== Petite Présentation
+== Petite Présentation
+
+=== La stack
+
+[.align-group]
+--
+image::./vuejs.png[A,340]
+image::./bulma.png[A,340]
+image::./firebase.png[A,340]
+--
 
 === Installation 
 
@@ -15,53 +24,11 @@ npm run build
 npm run lint
 ----
 
-=== Installation 
-
-++++
-<asciinema-player src="screencasts/vuejs.cast"></asciinema-player>
-++++
-
-=== La porte d'entrée ?  
-
-.public/index.html
-[source,html]
-----
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    ...
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    ...
-  </head>
-  <body>
-    ...
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
-
-----
-
-=== La porte d'entrée JS ?
-
-.main.js
-[source,javascript]
-----
-
-import Vue from "vue";
-import App from "./App.vue";
-
-Vue.config.productionTip = false;
-
-new Vue({
-  render: h => h(App)
-}).$mount("#app");
-
-----
-
-
-
 === La suite ?  
 
 Une todolist de plus pour remplir internet 😅
+
+=== Live Coding
+
+
   

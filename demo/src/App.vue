@@ -33,9 +33,7 @@
 import Task from "./components/Task";
 import firebase from "firebase";
 
-const db = firebase
-  .initializeApp(...)
-  .firestore();
+const db = firebase.initializeApp(require("./config.json")).firestore();
 
 export default {
   name: "app",

@@ -2,9 +2,7 @@
 
 === Nuxt.js du SSR pour Vue.js
 
-++++
-<asciinema-player src="screencasts/nuxtjs.cast"></asciinema-player>
-++++
+image::./nuxtjs.jpg[A]
 
 === Merci 🙏
 

@@ -1,9 +1,3 @@
-== Pour aller plus loin...
-
-=== Nuxt.js du SSR pour Vue.js
-
-image::./nuxtjs.jpg[A]
-
-=== Merci 🙏
+== Merci 🙏
 
 @EmmanuelDemey | @AurelienLoyer
